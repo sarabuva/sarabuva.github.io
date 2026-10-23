@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b1730">
+    <meta name="description"
+        content="SGIEES — SG Integrated Emerging Engineering Solutions. Practical engineering, digital transformation and technology services.">
+    <title>SGIEES | Integrated Engineering Solutions</title>
+    <style>
+        :root {
+            --navy: #0b1730;
+            --navy2: #12294b;
+            --teal: #17b8a6;
+            --gold: #f4b942;
+            --ink: #18243a;
+            --muted: #65728a;
+            --pale: #f3f7fb;
+            --white: #fff;
+            --line: #e2e9f1
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            line-height: 1.6
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            width: min(1140px, calc(100% - 40px));
+            margin: auto
+        }
+
+        .topbar {
+            background: var(--navy);
+            color: #dce7f7;
+            font-size: 13px;
+            padding: 9px 0
+        }
+        .brand-logo {
+            width: 256px;
+            height: 256px;
+            max-width: 256px;
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .topbar .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .topbar a {
+            color: #fff
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #fffF;
+            border-bottom: 1px solid #e7edf5;
+            backdrop-filter: blur(14px)
+        }
+
+        .navinner {
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 850;
+            letter-spacing: .5px;
+            color: var(--navy);
+            font-size: 22px
+        }
+
+        .mark {
+            width: 43px;
+            height: 43px;
+            border-radius: 13px;
+            background: var(--navy);
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 900;
+            position: relative;
+            overflow: hidden
+        }
+
+        .mark:after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 4px;
+            background: var(--teal);
+            transform: rotate(-45deg);
+            bottom: 10px;
+            right: -4px
+        }
+
+        .brand small {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 1.4px;
+            color: var(--muted);
+            font-weight: 700;
+            margin-top: -4px
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+            font-weight: 650
+        }
+
+        .links a:hover {
+            color: #0d9d90
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 19px;
+            border-radius: 9px;
+            background: var(--teal);
+            color: #052b31;
+            font-weight: 800;
+            border: 1px solid transparent;
+            transition: .2s
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(.96)
+        }
+
+        .btn.outline {
+            background: transparent;
+            color: white;
+            border-color: #ffffff70
+        }
+
+        .hero {
+            background: radial-gradient(ellipse at 82% 20%, #1d4669 0, transparent 37%), linear-gradient(120deg, var(--navy), #102746 70%, #0d3b4a);
+            color: white;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(to right, transparent, black)
+        }
+
+        .hero .wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.12fr .88fr;
+            align-items: center;
+            gap: 52px;
+            padding-top: 88px;
+            padding-bottom: 92px
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 850;
+            color: var(--teal)
+        }
+
+        .eyebrow:before {
+            content: "";
+            height: 2px;
+            width: 24px;
+            background: currentColor
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1.06;
+            letter-spacing: -2.4px;
+            margin: 22px 0
+        }
+
+        .hero h1 span {
+            color: var(--teal)
+        }
+
+        .hero p {
+            color: #d0dbea;
+            max-width: 580px;
+            font-size: 17px;
+            margin: 0 0 28px
+        }
+
+        .actions {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap
+        }
+
+        .hero-note {
+            display: flex;
+            gap: 20px;
+            margin-top: 35px;
+            color: #c7d5e6;
+            font-size: 12px;
+            flex-wrap: wrap
+        }
+
+        .hero-note span {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+            border-radius: 50%
+        }
+
+        .visual {
+            position: relative;
+            min-height: 390px;
+            display: grid;
+            place-items: center
+        }
+
+        .orbit {
+            width: min(360px, 100%);
+            aspect-ratio: 1;
+            border: 1px solid #ffffff35;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            position: relative
+        }
+
+        .orbit:before,
+        .orbit:after {
+            content: "";
+            position: absolute;
+            border: 1px solid #ffffff28;
+            border-radius: 50%
+        }
+
+        .orbit:before {
+            inset: 35px
+        }
+
+        .orbit:after {
+            inset: 72px
+        }
+
+        .core {
+            width: 150px;
+            height: 150px;
+            border-radius: 35px;
+            background: linear-gradient(145deg, #1ac5b0, #087e87);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 20px 70px #00bca455;
+            transform: rotate(-7deg);
+            z-index: 1
+        }
+
+        .core strong {
+            font-size: 35px;
+            letter-spacing: -2px;
+            transform: rotate(7deg)
+        }
+
+        .core small {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-align: center;
+            transform: rotate(7deg);
+            font-weight: 800
+        }
+
+        .node {
+            position: absolute;
+            z-index: 2;
+            background: #152d4a;
+            border: 1px solid #ffffff2e;
+            border-radius: 13px;
+            padding: 12px 15px;
+            box-shadow: 0 12px 30px #0002;
+            font-size: 12px;
+            font-weight: 750
+        }
+
+        .node b {
+            display: block;
+            color: var(--teal);
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 2px
+        }
+
+        .n1 {
+            top: 22px;
+            left: 0
+        }
+
+        .n2 {
+            top: 95px;
+            right: -5px
+        }
+
+        .n3 {
+            bottom: 45px;
+            right: 0
+        }
+
+        .n4 {
+            bottom: 10px;
+            left: 8px
+        }
+
+        .section {
+            padding: 84px 0
+        }
+
+        .sectionhead {
+            max-width: 680px;
+            margin-bottom: 38px
+        }
+
+        .sectionhead.center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .sectionhead h2 {
+            font-size: clamp(30px, 3vw, 42px);
+            letter-spacing: -1.3px;
+            line-height: 1.15;
+            margin: 12px 0
+        }
+
+        .sectionhead p {
+            color: var(--muted);
+            margin: 0
+        }
+
+        .kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #078f85;
+            font-weight: 850
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .service {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 26px;
+            background: white;
+            transition: .22s
+        }
+
+        .service:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px #11294b10;
+            border-color: #b9e5df
+        }
+
+        .iconbox {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: #e5f8f5;
+            color: #078f85;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            margin-bottom: 20px
+        }
+
+        .service h3 {
+            margin: 0 0 8px;
+            font-size: 19px
+        }
+
+        .service p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .service ul {
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 13px;
+            margin: 15px 0 0
+        }
+
+        .about {
+            background: var(--pale)
+        }
+
+        .aboutgrid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 65px;
+            align-items: center
+        }
+
+        .aboutpanel {
+            background: var(--navy);
+            color: white;
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px
+        }
+
+        .aboutpanel:after {
+            content: "SG";
+            position: absolute;
+            font-size: 180px;
+            font-weight: 900;
+            line-height: 1;
+            right: -15px;
+            bottom: -40px;
+            color: #ffffff0b
+        }
+
+        .aboutpanel h3 {
+            font-size: 27px;
+            line-height: 1.2;
+            max-width: 300px;
+            margin: 15px 0
+        }
+
+        .aboutpanel p {
+            color: #c8d6e7;
+            max-width: 340px;
+            font-size: 14px
+        }
+
+        .pillrow {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 23px
+        }
+
+        .pill {
+            border: 1px solid #ffffff30;
+            border-radius: 50px;
+            padding: 7px 11px;
+            font-size: 11px;
+            color: #e0e9f3
+        }
+
+        .aboutcopy h2 {
+            font-size: clamp(30px, 3vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.3px;
+            margin: 12px 0 18px
+        }
+
+        .aboutcopy>p {
+            color: var(--muted)
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 25px
+        }
+
+        .value {
+            display: flex;
+            gap: 11px
+        }
+
+        .check {
+            flex: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #dff7f1;
+            color: #078f85;
+            display: grid;
+            place-items: center;
+            font-size: 13px;
+            font-weight: 900
+        }
+
+        .value strong {
+            display: block;
+            font-size: 14px
+        }
+
+        .value small {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 3px
+        }
+
+        .industries {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .industry {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: white
+        }
+
+        .industry span {
+            font-size: 23px
+        }
+
+        .industry h3 {
+            font-size: 15px;
+            margin: 11px 0 4px
+        }
+
+        .industry p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .cta {
+            background: linear-gradient(115deg, #0b1730, #123958);
+            color: white;
+            padding: 58px 0
+        }
+
+        .ctainner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px
+        }
+
+        .ctainner h2 {
+            font-size: clamp(27px, 3vw, 38px);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin: 0 0 8px
+        }
+
+        .ctainner p {
+            color: #c9d8e8;
+            margin: 0
+        }
+
+        .contactgrid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 60px
+        }
+
+        .contactinfo h2 {
+            font-size: 38px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin: 12px 0
+        }
+
+        .contactinfo p {
+            color: var(--muted)
+        }
+
+        .contactitem {
+            display: flex;
+            gap: 13px;
+            margin-top: 23px
+        }
+
+        .contactitem .iconbox {
+            width: 42px;
+            height: 42px;
+            flex: none;
+            margin: 0
+        }
+
+        .contactitem strong {
+            display: block;
+            font-size: 14px
+        }
+
+        .contactitem span {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .contactform {
+            background: var(--pale);
+            border-radius: 18px;
+            padding: 28px
+        }
+
+        .formrow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .field {
+            margin-bottom: 15px
+        }
+
+        .field label {
+            display: block;
+            font-size: 12px;
+            font-weight: 750;
+            margin-bottom: 6px
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            border: 1px solid #d8e2ed;
+            border-radius: 9px;
+            padding: 12px 13px;
+            font: inherit;
+            font-size: 14px;
+            background: white;
+            color: var(--ink);
+            outline: none
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px #17b8a61c
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 105px
+        }
+
+        .contactform .btn {
+            width: 100%;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 800
+        }
+
+        .formhint {
+            font-size: 11px;
+            color: var(--muted);
+            margin: 10px 0 0
+        }
+
+        .footer {
+            background: #071124;
+            color: #b6c4d7;
+            padding: 28px 0
+        }
+
+        .footinner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .footer .brand {
+            color: white
+        }
+
+        .footer .brand small {
+            color: #9caec4
+        }
+
+        .footer p {
+            font-size: 12px;
+            margin: 8px 0 0
+        }
+
+        .footlinks {
+            display: flex;
+            gap: 18px;
+            font-size: 12px
+        }
+
+        .footlinks a:hover {
+            color: var(--teal)
+        }
+
+        .copyright {
+            border-top: 1px solid #ffffff17;
+            margin-top: 22px;
+            padding-top: 18px;
+            font-size: 11px;
+            color: #8495ac;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .mobiletoggle {
+            display: none
+        }
+
+        @media(max-width:850px) {
+            .links {
+                gap: 15px
+            }
+
+            .links a:not(.btn) {
+                display: none
+            }
+
+            .hero .wrap {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding-top: 65px;
+                padding-bottom: 60px
+            }
+
+            .hero-copy {
+                max-width: 680px
+            }
+
+            .visual {
+                min-height: 330px
+            }
+
+            .orbit {
+                width: 300px
+            }
+
+            .n2 {
+                right: 0
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .aboutgrid,
+            .contactgrid {
+                grid-template-columns: 1fr;
+                gap: 35px
+            }
+
+            .industries {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .ctainner {
+                align-items: flex-start;
+                flex-direction: column
+            }
+        }
+
+        @media(max-width:520px) {
+            .wrap {
+                width: min(100% - 30px, 1140px)
+            }
+
+            .topbar .wrap {
+                font-size: 11px
+            }
+
+            .navinner {
+                height: 68px
+            }
+
+            .brand {
+                font-size: 19px
+            }
+
+            .brand small {
+                font-size: 8px
+            }
+
+            .mark {
+                width: 39px;
+                height: 39px
+            }
+
+            .links .btn {
+                padding: 10px 12px;
+                font-size: 12px
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -1.6px
+            }
+
+            .hero p {
+                font-size: 15px
+            }
+
+            .hero .wrap {
+                padding-top: 52px
+            }
+
+            .visual {
+                min-height: 280px
+            }
+
+            .orbit {
+                width: 245px
+            }
+
+            .core {
+                width: 118px;
+                height: 118px;
+                border-radius: 28px
+            }
+
+            .core strong {
+                font-size: 29px
+            }
+
+            .node {
+                padding: 9px 11px;
+                font-size: 10px
+            }
+
+            .n1 {
+                top: 5px;
+                left: -2px
+            }
+
+            .n2 {
+                top: 60px;
+                right: -2px
+            }
+
+            .n3 {
+                bottom: 35px;
+                right: -2px
+            }
+
+            .n4 {
+                bottom: 0;
+                left: 0
+            }
+
+            .section {
+                padding: 62px 0
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .service {
+                padding: 22px
+            }
+
+            .industries {
+                gap: 9px
+            }
+
+            .industry {
+                padding: 14px
+            }
+
+            .industry h3 {
+                font-size: 13px
+            }
+
+            .values {
+                grid-template-columns: 1fr
+            }
+
+            .aboutpanel {
+                padding: 27px;
+                min-height: 280px
+            }
+
+            .contactform {
+                padding: 20px
+            }
+
+            .formrow {
+                grid-template-columns: 1fr;
+                gap: 0
+            }
+
+            .footinner {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .copyright {
+                flex-direction: column
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="wrap"><span>Integrated Engineering. Practical Innovation.</span><span>Coimbatore, Tamil Nadu, India
+                &nbsp;·&nbsp; <a href="mailto:admin@sgiees.com">admin@sgiees.com</a></span></div>
+    </div>
+    <header class="nav">
+        <div class="wrap navinner">
+            
+            <a href="#" class="brand">
+    <img src="image/logo.png" alt="SGIEES Logo" class="brand-logo">
+    
+</a>
+
+            <nav class="links" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a
+                    href="#industries">Industries</a><a href="#contact" class="btn">Let's Talk&nbsp; ↗</a></nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="wrap">
+                <div class="hero-copy">
+                    <div class="eyebrow">SG Integrated Emerging Engineering Solutions</div>
+                    <h1>Engineering ideas.<br><span>Integrating solutions.</span></h1>
+                    <p>We help organisations work smarter through practical engineering services, digital transformation
+                        and connected technology solutions—designed around real-world needs.</p>
+                    <div class="actions"><a class="btn" href="#services">Explore our services&nbsp; ↘</a><a
+                            class="btn outline" href="#contact">Discuss your project</a></div>
+                    <div class="hero-note"><span><i class="dot"></i> Practical, client-focused delivery</span><span><i
+                                class="dot"></i> Technology with purpose</span></div>
+                </div>
+                <div class="visual" aria-label="SGIEES integrated services illustration">
+                    <div class="orbit">
+                        <div class="core">
+                            <div><strong>SGIEES</strong><small>CONNECTED THINKING</small></div>
+                        </div>
+                        <div class="node n1"><b>01 / DIGITAL</b>Transformation</div>
+                        <div class="node n2"><b>02 / ENGINEERING</b>Integrated systems</div>
+                        <div class="node n3"><b>03 / SUPPORT</b>Service & solutions</div>
+                        <div class="node n4"><b>04 / INNOVATION</b>Smarter operations</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="services">
+            <div class="wrap">
+                <div class="sectionhead center">
+                    <div class="kicker">What we do</div>
+                    <h2>Solutions built around your needs</h2>
+                    <p>From improving everyday workflows to connecting technology and equipment, we focus on dependable
+                        solutions that create measurable value.</p>
+                </div>
+                <div class="cards">
+                    <article class="service">
+                        <div class="iconbox">⌘</div>
+                        <h3>Digital Transformation</h3>
+                        <p>Make work simpler, more visible and more efficient with practical digital enablement.</p>
+                        <ul>
+                            <li>Process mapping and improvement</li>
+                            <li>Workflow and reporting solutions</li>
+                            <li>Education and research systems support</li>
+                        </ul>
+                    </article>
+                    <article class="service">
+                        <div class="iconbox">⚙</div>
+                        <h3>Software & Technology</h3>
+                        <p>Connected applications and technology support that help teams manage information and
+                            operations.</p>
+                        <ul>
+                            <li>Business applications and portals</li>
+                            <li>Inventory, CRM and catalogue concepts</li>
+                            <li>System integration and automation</li>
+                        </ul>
+                    </article>
+                    <article class="service">
+                        <div class="iconbox">⌁</div>
+                        <h3>Engineering Solutions</h3>
+                        <p>Practical support for equipment, facilities and emerging engineering requirements.</p>
+                        <ul>
+                            <li>Solar and water-purification solutions</li>
+                            <li>Equipment sourcing and service coordination</li>
+                            <li>Technical consulting and project support</li>
+                        </ul>
+                    </article>
+                    <article class="service">
+                        <div class="iconbox">▤</div>
+                        <h3>Education & Research</h3>
+                        <p>Support institutions and teams as they strengthen systems, processes and digital
+                            capabilities.</p>
+                        <ul>
+                            <li>Digital systems and framework support</li>
+                            <li>Process documentation</li>
+                            <li>Operational improvement initiatives</li>
+                        </ul>
+                    </article>
+                    <article class="service">
+                        <div class="iconbox">◉</div>
+                        <h3>Consulting & Integration</h3>
+                        <p>Bring stakeholders, processes and technology together around a clear delivery plan.</p>
+                        <ul>
+                            <li>Requirement discovery</li>
+                            <li>Solution planning and coordination</li>
+                            <li>Implementation support</li>
+                        </ul>
+                    </article>
+                    <article class="service">
+                        <div class="iconbox">↗</div>
+                        <h3>Ongoing Support</h3>
+                        <p>Stay supported after launch with responsive coordination and continuous improvement.</p>
+                        <ul>
+                            <li>Service and issue tracking</li>
+                            <li>Documentation and knowledge transfer</li>
+                            <li>Continuous improvement reviews</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section about" id="about">
+            <div class="wrap aboutgrid">
+                <div class="aboutpanel">
+                    <div class="eyebrow">Who we are</div>
+                    <h3>Smart thinking. Reliable execution. Lasting value.</h3>
+                    <p>SGIEES brings an integrated approach to engineering and technology—connecting people, processes
+                        and solutions to help organisations move forward with confidence.</p>
+                    <div class="pillrow"><span class="pill">Client-focused</span><span
+                            class="pill">Practical</span><span class="pill">Collaborative</span><span
+                            class="pill">Future-ready</span></div>
+                </div>
+                <div class="aboutcopy">
+                    <div class="kicker">About SGIEES</div>
+                    <h2>We start by understanding the problem.</h2>
+                    <p>Every organisation has different priorities. We work with clients to understand their goals,
+                        identify practical opportunities and shape solutions that fit their operating environment,
+                        budget and timeline.</p>
+                    <p>Our approach is grounded in clear communication, thoughtful integration and a commitment to
+                        useful outcomes—not technology for its own sake.</p>
+                    <div class="values">
+                        <div class="value"><span class="check">✓</span>
+                            <div><strong>Understand first</strong><small>Align on needs, constraints and
+                                    outcomes.</small></div>
+                        </div>
+                        <div class="value"><span class="check">✓</span>
+                            <div><strong>Keep it practical</strong><small>Prioritise usable, maintainable
+                                    solutions.</small></div>
+                        </div>
+                        <div class="value"><span class="check">✓</span>
+                            <div><strong>Work together</strong><small>Build trust through clear collaboration.</small>
+                            </div>
+                        </div>
+                        <div class="value"><span class="check">✓</span>
+                            <div><strong>Improve continuously</strong><small>Learn, measure and refine over
+                                    time.</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="industries">
+            <div class="wrap">
+                <div class="sectionhead">
+                    <div class="kicker">Where we help</div>
+                    <h2>Connecting expertise across sectors</h2>
+                    <p>Our integrated approach can support a range of operational and technical environments.</p>
+                </div>
+                <div class="industries">
+                    <article class="industry"><span>🎓</span>
+                        <h3>Education & Research</h3>
+                        <p>Digital enablement and process frameworks.</p>
+                    </article>
+                    <article class="industry"><span>🏢</span>
+                        <h3>Small & Growing Businesses</h3>
+                        <p>Systems that improve day-to-day operations.</p>
+                    </article>
+                    <article class="industry"><span>☀️</span>
+                        <h3>Energy & Water</h3>
+                        <p>Solar, water purification and related support.</p>
+                    </article>
+                    <article class="industry"><span>🛠️</span>
+                        <h3>Engineering & Facilities</h3>
+                        <p>Equipment, service coordination and integration.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <div class="wrap ctainner">
+                <div>
+                    <h2>Have a challenge to solve?</h2>
+                    <p>Let's explore a practical solution together.</p>
+                </div><a class="btn" href="#contact">Start a conversation&nbsp; ↗</a>
+            </div>
+        </section>
+        <section class="section" id="contact">
+            <div class="wrap contactgrid">
+                <div class="contactinfo">
+                    <div class="kicker">Get in touch</div>
+                    <h2>Let's make progress together.</h2>
+                    <p>Tell us what you are trying to improve, build or integrate. We'll connect with you to understand
+                        the next steps.</p>
+                    <div class="contactitem">
+                        <div class="iconbox">✉</div>
+                        <div><strong>Email</strong><span><a href="mailto:admin@sgiees.com">admin@sgiees.com</a></span>
+                        </div>
+                    </div>
+                    <div class="contactitem">
+                        <div class="iconbox">⌖</div>
+                        <div><strong>Location</strong><span>Coimbatore, Tamil Nadu, India</span></div>
+                    </div>
+                    <div class="contactitem">
+                        <div class="iconbox">◷</div>
+                        <div><strong>Working hours</strong><span>Monday–Friday · By appointment</span></div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footinner">
+                <div><a class="brand" href="#home"><span class="mark">SG</span><span>SGIEES<small>SG INTEGRATED EMERGING
+                                ENGINEERING SOLUTIONS</small></span></a>
+                    <p>Engineering ideas. Integrating solutions.</p>
+                </div>
+                <div class="footlinks"><a href="#about">About</a><a href="#services">Services</a><a
+                        href="#industries">Industries</a><a href="#contact">Contact</a></div>
+            </div>
+            <div class="copyright"><span>© <span id="year"></span> SGIEES. All rights reserved.</span><span>Built around
+                    your needs. Focused on useful outcomes.</span></div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('contactForm').addEventListener('submit', function (e) { e.preventDefault(); const f = new FormData(this); const subject = encodeURIComponent('SGIEES Website Enquiry — ' + (f.get('service') || 'General enquiry')); const body = encodeURIComponent('Name: ' + f.get('name') + '\nOrganisation: ' + (f.get('organisation') || 'Not provided') + '\nEmail: ' + f.get('email') + '\nArea of interest: ' + (f.get('service') || 'Not selected') + '\n\nMessage:\n' + f.get('message')); document.getElementById('formHint').textContent = 'Your email app should open with the enquiry details. Please review and send the email.'; window.location.href = 'mailto:admin@sgiees.com?subject=' + subject + '&body=' + body; });
+    </script>
+</body>
+
+</html>
